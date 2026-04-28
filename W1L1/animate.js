@@ -6,6 +6,7 @@ let x = 200;
 var vx = 5;
 let y = 400;
 var vy = 5;
+let collisionCount = 0;
 
 var mainTimer = setInterval(animate, 1000/60);
 function animate()
@@ -20,28 +21,37 @@ ctx.lineWidth = 2;
 ctx.strokeStyle = "black";
 ctx.stroke();
 
+// Display collision count
+ctx.fillStyle = "black";
+ctx.font = "20px Arial";
+ctx.fillText("Collisions: " + collisionCount, 10, 30);
+
 //Update the Canvas
 x+= vx
 
 if (x + 40 > canvas.width)
 {
 vx = -vx;
+collisionCount++;
 }
 
 if (x - 40 < 0)
 {
     vx = vx * -1;
+    collisionCount++;
 }
 y+= vy
 
 if (y + 40 > canvas.height)
 {
 vy = -vy;
+collisionCount++;
 }
 
 if (y - 40 < 0)
 {
     vy = vy * -1;
+    collisionCount++;
 }
 
 }
