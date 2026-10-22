@@ -107,7 +107,6 @@ function gameObject(x,y,w,h, color)
     {
         this.x += this.vx;
         this.y += this.vy;
-<<<<<<< HEAD
 
         if (this.left() < 0)
         {
@@ -126,8 +125,6 @@ function gameObject(x,y,w,h, color)
         {
             this.y = canvas.height - this.height / 2;
         }
-=======
->>>>>>> ea6ef059f6aa6380aff884adcd13ecf4ffabb1b4
     }
 
 
@@ -146,12 +143,9 @@ function gameObject(x,y,w,h, color)
         }
         return false
     }
-<<<<<<< HEAD
 
     this.update = function(){
         this.x =+ this.speedX;
         this.y += this.speedY;
     }
-=======
->>>>>>> ea6ef059f6aa6380aff884adcd13ecf4ffabb1b4
 }
