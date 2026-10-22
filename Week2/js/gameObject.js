@@ -107,24 +107,6 @@ function gameObject(x,y,w,h, color)
     {
         this.x += this.vx;
         this.y += this.vy;
-
-        if (this.left() < 0)
-        {
-            this.x = this.width / 2;
-        }
-        else if (this.right() > canvas.width)
-        {
-            this.x = canvas.width - this.width / 2;
-        }
-
-        if (this.top() < 0)
-        {
-            this.y = this.height / 2;
-        }
-        else if (this.bottom() > canvas.height)
-        {
-            this.y = canvas.height - this.height / 2;
-        }
     }
 
 
@@ -145,7 +127,27 @@ function gameObject(x,y,w,h, color)
     }
 
     this.update = function(){
-        this.x =+ this.speedX;
-        this.y += this.speedY;
+    this.x += this.speedX;
+    this.y += this.speedY;
+
+    // RIGHT
+    if (this.x + this.height > this.canvas.width) {
+        this.x = this.canvas.width - this.radius;
     }
+
+    // LEFT
+    if (this.x - this.width < 0) {
+        this.x = this.width;
+    }
+
+    // BOTTOM
+    if (this.y + this.height > this.canvas.height) {
+        this.y = this.canvas.height - this.height;
+    }
+
+    // TOP
+    if (this.y - this.height < 0) {
+        this.y = this.height;
+    }
+}
 }
